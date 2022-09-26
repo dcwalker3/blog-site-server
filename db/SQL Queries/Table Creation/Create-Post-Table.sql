@@ -1,0 +1,16 @@
+use blog_site;
+
+CREATE TABLE posts (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    body TEXT NOT NULL,
+    user_id INT(11) NOT NULL,
+    likes INT(11) NOT NULL DEFAULT 0,
+    dislikes INT(11) NOT NULL DEFAULT 0,
+    views INT(11) NOT NULL DEFAULT 0,
+    comments INT(11) NOT NULL DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
